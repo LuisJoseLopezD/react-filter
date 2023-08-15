@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
+import Nav from './components/Nav';
+import Card from './components/Card';
+import data from './helpers/data';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+
+    const [categories, setCategories] = useState("");
+
+    return (
+
+        <>
+            <Nav data={data} setCategories={setCategories} />
+
+            <div className="w-full flex flex-wrap">
+                {data.map((item, index) => (
+                    item.category.includes(categories) && (
+                        <Card
+                            title={item.title}
+                            desc={item.desc}
+                            price={item.price}
+                            img={item.img}
+                        />
+                    )
+                ))}
+            </div>
+        </>
+    );
 }
 
 export default App;
