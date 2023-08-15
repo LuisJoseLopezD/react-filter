@@ -2,11 +2,12 @@ const Card = ({
     title,
     desc,
     img,
-    price
+    price,
+    key
 }) => {
     return (
         <>
-            <div className="flex flex-col md:flex-row w-full lg:w-1/2 md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 border border-white bg-white">
+            <div key={key} className="flex flex-col md:flex-row w-full lg:w-1/2 md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 border border-white bg-white">
                 <div className="w-full md:w-1/2 lg:w-1/4 bg-white">
                     <img src={img} alt="tailwind logo" className="rounded-xl object-cover lg:h-32 lg:w-64"/>
                 </div>

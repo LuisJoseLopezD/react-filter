@@ -16,6 +16,7 @@ const App = () => {
                 {data.map((item, index) => (
                     item.category.includes(categories) && (
                         <Card
+                            key={index}
                             title={item.title}
                             desc={item.desc}
                             price={item.price}
